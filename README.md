@@ -2,6 +2,8 @@
 
 The following Rails app is used as the base project for [The Pivot](http://backend.turing.io/module3/projects/the_pivot).
 
+[![CircleCI](https://circleci.com/gh/tylermarshal/le_pivot.svg?style=svg)](https://circleci.com/gh/tylermarshal/le_pivot)
+
 ## Setup
 
 Built using Ruby 2.4.1 and Rails 5.1.3
