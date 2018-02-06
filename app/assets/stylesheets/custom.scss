@@ -5,10 +5,22 @@ body {
   background-color: $background-color;
 }
 
-.nav-gradient {
+.color-gradient {
   background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
+.margin-bottom {
+  margin-bottom: 10px;
+}
+
+.flex-center {
   display: flex;
   justify-content: center;
+}
+
+.login-banner {
+  height: 250px;
+  width: auto;
 }
 
 .small{
