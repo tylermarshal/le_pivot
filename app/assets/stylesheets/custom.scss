@@ -1,7 +1,14 @@
 @import "partials/base";
 
+
 body {
-  background-color: $secondary-color;
+  background-color: $background-color;
+}
+
+.nav-gradient {
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  display: flex;
+  justify-content: center;
 }
 
 .small{
