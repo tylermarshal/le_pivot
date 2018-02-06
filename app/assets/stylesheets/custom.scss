@@ -1,3 +1,5 @@
+@import "partials/base";
+
 body {
   background-color: #f4f4f4;
 }
@@ -25,7 +27,7 @@ footer{
 
 .logo a:hover{
   text-decoration: none;
-  color: #333;
+  color: $secondary-color;
 }
 
 div.container {
