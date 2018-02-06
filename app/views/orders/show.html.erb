@@ -24,7 +24,7 @@
       <th></th>
       <th>Total:</th>
       <td class="order-total">
-        <%= number_to_currency(@order.order_total) %>
+        <%= number_to_currency(@order.order_total, precision: 2) %>
     </td>
     </tr>
     </tbody>
