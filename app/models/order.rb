@@ -44,4 +44,12 @@ class Order < ApplicationRecord
   def self.shop_total_gross
     where(status: :completed).joins(:items).sum(:price)
   end
+
+  def self.check_for_status(params)
+    if params[:status]
+      filter_by_status(params[:status])
+    else
+      all
+    end
+  end
 end
