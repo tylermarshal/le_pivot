@@ -2,7 +2,8 @@ class User < ApplicationRecord
   has_secure_password
   has_many :orders
 
-  validates :first_name, :last_name, :password, presence: true
+  validates :first_name, :last_name, presence: true
+  validates :password, presence: true, allow_nil: true
   validates :email, presence: true, uniqueness: true
 
   enum role: ["default", "admin"]
