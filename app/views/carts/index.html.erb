@@ -6,7 +6,6 @@
   <% end %>
   <h6><%= link_to "Continue Shopping", items_path %></h6>
   <center>
-    <!-- <div class="col-10"> -->
     <table class="table table-hover">
       <thead>
         <tr>
@@ -19,18 +18,17 @@
           <th>Subtotal</th>
         </tr>
         <tbody>
-
-          <% @items.each do |item, quantity| %>
-            <div class="item-#{item.id}">
+          <% @cart_items.each do |cart_item| %>
+            <div class="item-#{cart_item.id}">
               <tr>
-                <th scope="row"><strong><%= link_to item.title, item_path(item) %></strong></th>
-                <td><%= image_tag item.image, :class => "cart_image"%></td>
-                <td>$<%= item.price %></td>
-                <td><%= quantity %></td>
-                <td><%= link_to "-", cart_path(id: item.id, condition: "decrease"), action: :update, method: :patch, class: "badge badge-danger" %>
-                <%= link_to "+", cart_path(id: item.id, condition: "increase"), action: :update, method: :patch, class: "badge badge-success" %></td>
-                <td><%= link_to "Remove", cart_path(id: item.id), method: :delete, class: "badge badge-danger" %></td>
-                <td>$<%= quantity * item.price %></td>
+                <th scope="row"><strong><%= link_to cart_item.title, item_path(cart_item) %></strong></th>
+                <td><%= image_tag cart_item.image, :class => "cart_image"%></td>
+                <td>$<%= cart_item.price %></td>
+                <td><%= cart_item.quantity %></td>
+                <td><%= link_to "-", cart_path(id: cart_item.id, condition: "decrease"), action: :update, method: :patch, class: "badge badge-danger" %>
+                <%= link_to "+", cart_path(id: cart_item.id, condition: "increase"), action: :update, method: :patch, class: "badge badge-success" %></td>
+                <td><%= link_to "Remove", cart_path(id: cart_item.id), method: :delete, class: "badge badge-danger" %></td>
+                <td>$<%= cart_item.total_cost %></td>
               </tr>
             </div>
           <% end %>
@@ -38,8 +36,8 @@
     </table>
     <div class="total">
       <% sum = 0 %>
-      <% @items.each do |item, quantity| %>
-        <% sum += (item.price * quantity) %>
+      <% @cart_items.each do |cart_item| %>
+        <% sum += (cart_item.total_cost) %>
       <% end %>
       <p><b>Total: <%= number_to_currency(sum) %></b></p>
     </div>
@@ -51,6 +49,5 @@
         <%= link_to "Create new account", new_user_path %>
       <% end %>
     </div>
-    <!-- </div> -->
   </center>
 </div>

@@ -2,7 +2,9 @@ class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
-    @items = @cart.cart_items
+    @cart_items = @cart.cart_items.map do |item, quantity|
+      CartItem.new(item, quantity)
+    end
   end
 
   def create
