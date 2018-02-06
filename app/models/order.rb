@@ -18,6 +18,13 @@ class Order < ApplicationRecord
     end
   end
 
+  def order_total
+    items.reduce(0) do |result, item|
+      result += (item.price * OrderItem.find_by(item: item.id, order: self.id).quantity)
+      result
+    end
+  end
+
   def date
     created_at.strftime('%b. %d, %Y')
   end
@@ -35,6 +42,6 @@ class Order < ApplicationRecord
   end
 
   def self.shop_total_gross
-		where(status: :completed).joins(:items).sum(:price)
+    where(status: :completed).joins(:items).sum(:price)
   end
 end

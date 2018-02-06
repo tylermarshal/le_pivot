@@ -17,11 +17,7 @@
             <td><%= order.status.capitalize %></td>
             <!-- <td>$<%= order.total_price %></td> -->
             <td>
-              <% sum = 0 %>
-              <% order.items.each do |item| %>
-                <% sum += (item.price * OrderItem.find_by(item: item, order: order).quantity) %>
-              <% end %>
-              <%= number_to_currency(sum) %>
+              <%= number_to_currency(order.order_total) %>
           </td>
           </tr>
         <% end %>
