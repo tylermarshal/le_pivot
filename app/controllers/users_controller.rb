@@ -21,14 +21,19 @@ class UsersController < ApplicationController
       redirect_to admin_dashboard_index_path
     elsif current_user != nil
       current_user.update(user_params)
-      redirect_to dashboard_index_path
+      flash[:notice] = "Successfully updated your account information."
+      redirect_to account_edit_path
     else
       render file: "/public/404"
     end
   end
 
   def show
-    @user = User.find(params[:id])
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+    else
+      @user = User.find(params[:id])
+    end
   end
 
 
