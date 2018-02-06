@@ -1,0 +1,45 @@
+.cart_image{
+  width: 3em;
+  height: 4em;
+}
+
+.checkout{
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.total{
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h2{
+  text-align: center;
+  font-size: 3em;
+}
+
+h3{
+  float: left;
+  padding-top: 20px;
+}
+
+h6{
+  position: relative;
+  float: right;
+  margin: 10px;
+  padding: 20px;
+  border: 2px solid $primary-color;
+  background-color: $hover-color;
+  text-align: center;
+  text-color: white;
+  text-decoration: none;
+  a:hover{
+    text-decoration: none;
+  }
+    &:hover {
+    text-color: $hover-color;
+    background: $secondary-color;
+    }
+}
