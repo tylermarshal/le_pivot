@@ -57,4 +57,12 @@ describe Item do
       expect(item).to respond_to(:orders)
     end
   end
+  describe "instance methods" do 
+    let(:order){create(:order)}
+    let(:item){create(:item)}
+    it "can find quantity based on item and order ids" do 
+      order_item = OrderItem.create(order_id: order.id, item_id: item.id, quantity: 44)
+      expect(item.quantity(order)).to eq 44
+    end
+  end
 end
