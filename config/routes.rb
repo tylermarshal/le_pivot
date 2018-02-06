@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/login', :to => 'sessions#create'
   delete '/logout', :to => 'sessions#destroy'
 
+  get '/account/edit', :to => 'users#edit'
 
   namespace :admin do
     resources :dashboard, only: [:index]
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   #   resources :items, only: [:index, :show]
   # end
 
-  resources :users , only: [:new, :create, :edit, :update]
+  resources :users , only: [:new, :create, :update]
 
   resources :orders, only: [:index, :new, :show, :update]
 
