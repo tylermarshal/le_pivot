@@ -1,22 +1,27 @@
-<div class="container">
-    <%= image_tag 'login.png' %>
+<div class="flex-center">
+  <%= image_tag('terrariums.jpg', class: "login-banner")  %>
+</div>
+<div class="flex-center">
+  Login
+</div>
+<div class="container flex-center">
   <div class="row">
-    <div class="col-3">
-    <table class="table login-form">
-      <%= form_for(:session, url: login_path) do |f| %>
-        <tr>
-          <td class="table-light"><%= f.label :email %></td>
-          <td class="table-light"><%= f.text_field :email %></td>
-        </tr>
-        <tr>
-          <td class="table-light"><%= f.label :password %></td>
-          <td class="table-light"><%= f.password_field :password %></td>
-        </tr>
-        <tr class="action">
-          <td class="table-light"><%= f.submit name="Login", class: "btn btn-primary" %></td>
-          <td class="table-light"><small>Don't have an account with us? <%= link_to "Create an account", new_user_path %>.</small></td>
-        </tr>
-      <% end %>
+    <div class="col-sm-offset-4 col-sm-4">
+      <table class="table login-form">
+        <%= form_for(:session, url: login_path) do |f| %>
+          <tr>
+            <td><%= f.label :email %></td>
+            <td><%= f.text_field :email %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :password %></td>
+            <td><%= f.password_field :password %></td>
+          </tr>
+          <tr class="action">
+            <td><%= f.submit name="Login", class: "btn btn-primary" %></td>
+            <td><small>Don't have an account with us? <%= link_to "Create an account", new_user_path %>.</small></td>
+          </tr>
+        <% end %>
     </div>
   </div>
 </div>
