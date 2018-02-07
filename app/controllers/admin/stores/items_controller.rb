@@ -6,15 +6,16 @@ class Admin::Stores::ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
     @store = Store.find_by(slug: params[:store])
+    @item = Item.new
   end
 
   def create
     @categories = Category.all
-    @item = Item.new(item_params)
+    @store = Store.find_by(slug: params[:store])
+    @item = @store.items.new(item_params)
     if @item.save
-      redirect_to store_item(@item.store.slug, @item)
+      redirect_to store_item_path(@item.store.slug, @item)
     else
       render :new
     end
