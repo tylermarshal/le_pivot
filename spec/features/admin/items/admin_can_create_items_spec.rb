@@ -15,7 +15,9 @@ RSpec.feature "Admin item creation" do
       page.attach_file("item[image]", testing_image)
       click_on "Create Item"
 
-      expect(current_path).to eq(admin_items_path)
+      item_2 = Item.last
+
+      expect(current_path).to eq(store_item_path(item_2.store.slug, item_2))
       expect(page).to have_content("Onesie")
       expect(page).to have_content("59.99")
     end
@@ -33,7 +35,7 @@ RSpec.feature "Admin item creation" do
       fill_in "item[price]", with: "59.99"
       click_on "Create Item"
 
-      expect(current_path).to eq(admin_items_path)
+      expect(current_path).to eq(store_items_path)
       expect(page).to have_content("Onesie")
       expect(page).to have_content("59.99")
     end
