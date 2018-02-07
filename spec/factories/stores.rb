@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :store do
-    name "MyString"
-    status "MyString"
-    slug "MyString"
+    sequence(:name) {|n| "Name #{n}" }
+    status 0
   end
 end
