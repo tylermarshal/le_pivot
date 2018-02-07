@@ -9,8 +9,4 @@ class Store < ApplicationRecord
   def generate_slug
     self.slug = name.parameterize
   end
-
-  def index
-
-  end
 end
