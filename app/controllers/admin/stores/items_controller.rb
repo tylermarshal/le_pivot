@@ -2,11 +2,12 @@ class Admin::Stores::ItemsController < ApplicationController
   before_action :require_admin
   def index
     @items = Item.all
+    @store = Store.find_by(slug: params[:store])
   end
 
   def new
     @item = Item.new
-    @store = Store.find_by(slug: params[:slug])
+    @store = Store.find_by(slug: params[:store])
   end
 
   def create
