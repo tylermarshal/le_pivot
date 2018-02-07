@@ -24,6 +24,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Successfully updated your account information."
       redirect_to account_edit_path
     else
+      flash[:failure] = "Update unsuccessful, please try again."
       render file: "/public/404"
     end
   end
