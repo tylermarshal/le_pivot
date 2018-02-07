@@ -18,11 +18,13 @@ Rails.application.routes.draw do
     resources :analytics, only: [:index]
   end
 
-  # namespace :stores, as: :store, path: ':store' do
-  #   resources :items, only: [:index, :show]
-  # end
+  namespace :stores, as: :store, path: ':store' do
+    resources :items, only: [:index, :show]
+  end
 
-  resources :users , only: [:new, :create, :update, :edit]
+  resources :stores, only: [:index]
+
+  resources :users, only: [:new, :create, :edit, :update]
 
   resources :orders, only: [:index, :new, :show, :update]
 
