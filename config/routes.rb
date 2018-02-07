@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:index]
     resources :items, only: [:index, :edit, :new, :create, :update]
     resources :analytics, only: [:index]
+    namespace :stores, as: :store, path: ':store' do
+      resources :items, only: [:new, :create]
+    end
   end
 
   namespace :stores, as: :store, path: ':store' do
