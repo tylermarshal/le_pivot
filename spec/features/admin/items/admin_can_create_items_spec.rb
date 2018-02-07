@@ -7,7 +7,7 @@ RSpec.feature "Admin item creation" do
       create(:item)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-      visit admin_items_path
+      visit new_admin_store_item_path
       click_on "Create New Item"
       fill_in "item[title]", with: "Onesie"
       fill_in "item[description]", with: "This Onesie is awesome!"
