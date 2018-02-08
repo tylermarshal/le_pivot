@@ -24,10 +24,11 @@ RSpec.feature "Admin item creation" do
 
     it "I can create an item without an image and it defaults" do
       admin = build(:admin)
-      category = create(:category)
+      create(:category)
+      store = create(:store)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-      visit admin_items_path
+      visit admin_store_items_path(store.slug)
 
       click_on "Create New Item"
       fill_in "item[title]", with: "Onesie"
@@ -35,7 +36,9 @@ RSpec.feature "Admin item creation" do
       fill_in "item[price]", with: "59.99"
       click_on "Create Item"
 
-      expect(current_path).to eq(store_items_path)
+      item = Item.last
+
+      expect(current_path).to eq(store_item_path(store.slug, item.id))
       expect(page).to have_content("Onesie")
       expect(page).to have_content("59.99")
     end
