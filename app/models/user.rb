@@ -13,7 +13,11 @@ class User < ApplicationRecord
   def registered_user?
     roles.exists?(title: "registered_user")
   end
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> remove require_admin methods
   def store_admin?
     roles.exists?(title: "store_admin")
   end
@@ -21,10 +25,13 @@ class User < ApplicationRecord
   def platform_admin?
     roles.exists?(title: "platform_admin")
   end
+<<<<<<< HEAD
 
   def store_manager?
     roles.exists?(title: "store_manager")
   end
+=======
+>>>>>>> remove require_admin methods
   
   def full_name
     first_name + " " + last_name
