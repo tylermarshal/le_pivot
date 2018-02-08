@@ -1,5 +1,5 @@
 class Admin::Stores::ItemsController < ApplicationController
-  before_action :require_admin
+   
   def index
     @items = Item.all
     @store = Store.find_by(slug: params[:store])
