@@ -19,10 +19,12 @@ class Order < ApplicationRecord
   end
 
   def order_total
-    items.reduce(0) do |result, item|
+    total = items.reduce(0) do |result, item|
       result += (item.price * OrderItem.find_by(item: item.id, order: self.id).quantity)
       result
     end
+    self.update(order_total: total)
+    total
   end
 
   def date
