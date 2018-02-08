@@ -1,17 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature "User can place an order" do
-  before(:each) do
-    @category = Category.create(title: "Cats")
-    @item = @category.items.create(title: "Black Cat Onesie",
-                                   description: "The best cat onesie you'll ever find",
-                                   price: 19.99,
-                                   image: "https://images-na.ssl-images-amazon.com/images/I/41CFHIae7TL._SL500_.jpg")
-    User.create(first_name: "Tester", last_name: "McTesty", email: "testerson@testmail.com", password: "testing")
-  end
   it "and see the message 'order was successfully placed'" do
+    User.create(first_name: "Tester", last_name: "McTesty", email: "testerson@testmail.com", password: "testing")
+    item = create(:item)
 
-    visit items_path
+    visit store_items_path(item.store.slug)
 
     click_on "Add to cart"
 
