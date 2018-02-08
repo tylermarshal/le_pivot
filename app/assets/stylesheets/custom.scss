@@ -5,17 +5,24 @@ body {
   background-color: $background-color;
 }
 
+.sessions-new {
+  background: image-url(login) no-repeat center center fixed;
+  background-size: cover;
+}
+
 .color-gradient {
   background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 }
 
-.margin-bottom {
-  margin-bottom: 10px;
-}
 
 .flex-center {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.margin-bottom-50 {
+  margin-bottom: 10%;
 }
 
 .banner-image {
