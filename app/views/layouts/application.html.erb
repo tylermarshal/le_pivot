@@ -9,9 +9,11 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   </head>
 
-  <body>
-    <div class="container-fullwidth color-gradient flex-center margin-bottom">
+  <body class="<%= params[:controller] %>-<%= params[:action] %>">
+      <div class="container-fullwidth color-gradient flex-center margin-bottom-50">
       <%= render "shared/nav" %>
+      </div>
+      <div class="container-fullwidth">
       <% if flash.count > 0  %>
         <div class="center-block" style= "width: 15rem;">
           <div class="alert alert-primary alert-dismissable" role="alert">
@@ -24,7 +26,7 @@
           <% end %>
           </div>
         </div>
+      </div>
         <%= yield %>
-    </div>
   </body>
 </html>
