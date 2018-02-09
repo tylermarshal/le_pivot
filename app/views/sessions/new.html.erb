@@ -4,22 +4,24 @@
 </div>
 <div class="container flex-center">
   <div class="row">
-    <div class="col-sm-offset-4 col-sm-4">
-      <table class="table login-form">
-        <%= form_for(:session, url: login_path) do |f| %>
-          <tr>
-            <td><%= f.label :email %></td>
-            <td><%= f.text_field :email %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :password %></td>
-            <td><%= f.password_field :password %></td>
-          </tr>
-          <tr class="action">
-            <td><%= f.submit name="Login", class: "btn btn-primary" %></td>
-            <td><small>Don't have an account with us? <%= link_to "Create an account", new_user_path %>.</small></td>
-          </tr>
-        <% end %>
+    <div class="col-12">
+      <%= form_for(:session, url: login_path) do |f| %>
+
+        <div class="form-group float-label-control">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: "form-control", type: "email"  %>
+        </div>
+        <div class="form-group float-label-control">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control"  %>
+        </div>
+        <div>
+          <%= f.submit name="Login", class: "btn btn-primary" %>
+        </div>
+        <div>
+          <small>Don't have an account with us? <%= link_to "Create an account", new_user_path %>.</small>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
