@@ -113,11 +113,13 @@ a {
   .succulent-store {
     background: image-url(cactus-store) no-repeat center center;
     background-size: cover;
+    color: $font-color;
   }
 
   .ceramics-store {
     background: image-url(ceramic-2) no-repeat center center;
     background-size: cover;
+    color: $font-color;
   }
 
   .decor-store {
@@ -138,6 +140,7 @@ a {
   .book-store {
     background: image-url(book) no-repeat center center;
     background-size: cover;
+    color: $font-color;
   }
 
 
