@@ -40,7 +40,7 @@ describe "And when I click “Login” I should be on the “/login page”" do
             fill_in "session[email]", with: "testerson@testmail.com"
 
 
-            within(".action") do
+            within(".login-path") do
               click_on("Login")
             end
 
@@ -70,7 +70,7 @@ describe "And when I click “Login” I should be on the “/login page”" do
               fill_in "session[password]", with: "testing"
 
 
-              within(".action") do
+              within(".login-path") do
                 click_on("Login")
               end
 

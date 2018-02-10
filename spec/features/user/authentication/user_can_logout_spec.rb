@@ -8,7 +8,7 @@ RSpec.describe "As a visitor I can login" do
 		fill_in "session[email]", with: "testerson@testmail.com"
 		fill_in "session[password]", with: "testing"
 
-		within(".action") do
+		within(".login-path") do
 			click_on("Login")
 		end
 		click_on 'Logout'
