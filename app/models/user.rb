@@ -2,12 +2,30 @@ class User < ApplicationRecord
   has_secure_password
   has_many :orders
 
+  has_many :user_roles
+  has_many :roles, through: :user_roles
+
   validates :first_name, :last_name, presence: true
   validates :password, presence: true, allow_nil: true
   validates :email, presence: true, uniqueness: true
 
-  enum role: ["default", "admin"]
 
+  def registered_user?
+    roles.exists?(title: "registered_user")
+  end
+
+  def store_admin?
+    roles.exists?(title: "store_admin")
+  end
+
+  def platform_admin?
+    roles.exists?(title: "platform_admin")
+  end
+
+  def store_manager?
+    roles.exists?(title: "store_manager")
+  end
+  
   def full_name
     first_name + " " + last_name
   end

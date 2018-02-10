@@ -12,14 +12,18 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    if current_user.id == params[:id].to_i
+      @user = current_user
+    else
+      render file: "/public/404"
+    end
   end
 
-  def update
-    if current_admin?
+  def update 
+    if current_user.platform_admin? && current_user.id == params[:id].to_i
       current_user.update(user_params)
       redirect_to admin_dashboard_index_path
-    elsif current_user != nil
+    elsif current_user != nil && current_user.id == params[:id].to_i
       current_user.update(user_params)
       flash[:notice] = "Successfully updated your account information."
       redirect_to account_edit_path
