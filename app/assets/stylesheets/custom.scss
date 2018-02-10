@@ -56,9 +56,9 @@ footer{
   font-size: 30px;
 }
 
-.logo a:hover{
+a:hover{
   text-decoration: none;
-  color: $secondary-color;
+  color: $background-color;
 }
 
 div.container {
@@ -92,6 +92,53 @@ a {
   width: 100%;
   height: auto;
 }
+
+.wrapper {
+		display: grid;
+    grid-gap: 75px;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr) ) ;
+		color: #444;
+    margin: 3% 10% 0 10%;
+	}
+
+  .box {
+		color: #fff;
+		border-radius: 5px;
+		padding: 20px;
+		font-size: 150%;
+    margin-bottom: 10%;
+    height: 400px;
+	}
+
+  .succulent-store {
+    background: image-url(cactus-store) no-repeat center center;
+    background-size: cover;
+  }
+
+  .ceramics-store {
+    background: image-url(ceramic-2) no-repeat center center;
+    background-size: cover;
+  }
+
+  .decor-store {
+    background: image-url(decor-possible) no-repeat center center;
+    background-size: cover;
+  }
+
+  .candle-store {
+    background: image-url(candles) no-repeat center center;
+    background-size: cover;
+  }
+
+  .soap-store {
+    background: image-url(soap) no-repeat center center;
+    background-size: cover;
+  }
+
+  .book-store {
+    background: image-url(book) no-repeat center center;
+    background-size: cover;
+  }
 
 
 .float-label-control { position: relative; margin-bottom: 1.5em; }
