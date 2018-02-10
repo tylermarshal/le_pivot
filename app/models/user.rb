@@ -13,13 +13,17 @@ class User < ApplicationRecord
   def registered_user?
     roles.exists?(title: "registered_user")
   end
-  
+
   def store_admin?
     roles.exists?(title: "store_admin")
   end
 
   def platform_admin?
     roles.exists?(title: "platform_admin")
+  end
+
+  def store_manager?
+    roles.exists?(title: "store_manager")
   end
   
   def full_name
