@@ -7,7 +7,7 @@ module FeatureHelper
     fill_in "session[email]", with: email
     fill_in "session[password]", with: password
 
-    within(".login-form") do
+    within(".login-path") do
       click_on("Login")
     end
   end
