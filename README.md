@@ -12,7 +12,12 @@ Install required gems:
 `$ bundle install`
 
 Load the database dump:
-`$ rake import_dump:load`
+```
+rake import_dump:load
+rake import_first_store:create
+rake import_all_stores:create
+rake recategorize_books:run
+```
 
 After the import you should see a return value of 1011 when running `Item.count` in the console.
 
