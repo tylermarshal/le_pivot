@@ -1,6 +1,6 @@
 class CartItem < SimpleDelegator
 
-  attr_reader :quantity
+  attr_accessor :quantity
 
   def initialize(item, quantity)
     super(item)

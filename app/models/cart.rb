@@ -2,43 +2,76 @@ class Cart
   attr_reader :contents
 
   def initialize(initial_contents)
-    @contents = initial_contents || {}
+    @contents = to_cart_items(initial_contents)
+  end
+
+  def to_cart_items(initial_contents)
+    if initial_contents.nil?
+      @contents = []
+    else
+      initial_contents.inject([]) do |result, (item_id, quantity)|
+        result << CartItem.new(Item.find(item_id), quantity)
+        result
+      end 
+    end
   end
 
   def total_count
-    contents.values.sum
+    contents.reduce(0) do |sum, cart_item|
+      sum + cart_item.quantity
+    end
   end
 
+  # def total_cost
+  #   sum = 0
+  #   @cart_items.each do |cart_item|
+  #     sum += (cart_item.cost)
+  #   end
+  # end
+
   def add_item(id)
-    contents[id.to_s] = (contents[id.to_s] || 0) + 1
+    contents.each do |cart_item|
+      cart_item.quantity += 1 if cart_item.id == id
+    end
   end
 
   def decrease_quantity(id)
-    if contents[id.to_s] > 0
-      contents[id.to_s] -=1
+    contents.each do |cart_item|
+      check_item_quantity(cart_item) if cart_item.id == id 
     end
-    if contents[id.to_s] == 0
-      delete_item(id)
+  end
+
+  def check_item_quantity(cart_item)
+    if cart_item.quantity > 1
+      cart_item.quantity -= 1
+    else
+      contents.delete(cart_item)
     end
   end
 
   def increase_quantity(id)
-    contents[id.to_s] += 1
-  end
-
-  def count_of(id)
-    contents[id.to_s].to_i
-  end
-
-  def cart_items
-    contents.inject({}) do |result, (item_id, quantity)|
-      result[Item.find(item_id)] = quantity
-      result
+    contents.each do |cart_item|
+      cart_item.quantity += 1 if cart_item.id == id 
     end
   end
 
+  def count_of(id)
+    contents.each do |cart_item|
+      return cart_item.quantity if cart_item.id == id
+    end
+  end
+
+  # def cart_items
+  #   contents.inject([]) do |result, (item_id, quantity)|
+  #     result << CartItem.new(Item.find(item_id), quantity)
+  #     result
+  #   end
+  # end
+
   def delete_item(id)
-    contents.delete(id.to_s)
+    contents.each do |cart_item|
+       contents.delete(cart_item) if cart_item.id == id
+    end
   end
 
   def destroy

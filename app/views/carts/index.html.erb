@@ -35,11 +35,11 @@
         </tbody>
     </table>
     <div class="total">
-      <% sum = 0 %>
-      <% @cart_items.each do |cart_item| %>
-        <% sum += (cart_item.total_cost) %>
-      <% end %>
-      <p><b>Total: <%= number_to_currency(sum) %></b></p>
+      # <% sum = 0 %>
+      # <% @cart_items.each do |cart_item| %>
+      #   <% sum += (cart_item.total_cost) %>
+      # <% end %>
+      # <p><b>Total: <%= number_to_currency(sum) %></b></p>
     </div>
     <div class="checkout">
       <% if current_user %>
