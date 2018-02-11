@@ -40,7 +40,7 @@ RSpec.describe Order do
       order.order_items.create!(quantity: 3, item_id: item_1.id)
       order.order_items.create!(quantity: 1, item_id: item_2.id)
       item_not_included = create(:item, title: "Banana Stand", price: 100.00)
-
+      binding.pry
       expect(order.order_total). to eq 31.00
     end
     it "can return total price of items" do
