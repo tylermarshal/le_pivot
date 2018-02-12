@@ -8,6 +8,7 @@ class Admin::Stores::ItemsController < ApplicationController
   end
 
   def new
+    @categories = Category.all
     @store = Store.find_by(slug: params[:store])
     @item = Item.new
   end
@@ -35,6 +36,7 @@ class Admin::Stores::ItemsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
     @item = Item.find(params[:id])
   end
 
@@ -45,6 +47,6 @@ class Admin::Stores::ItemsController < ApplicationController
   end
 
   def require_admin
-    render file: "/public/404" unless current_user.platform_admin? || current_user.has_store_access?(params[:store])
+    render file: "/public/404" unless current_user.platform_admin? || current_user.has_store_access?(params[:action],params[:store])
   end
 end
