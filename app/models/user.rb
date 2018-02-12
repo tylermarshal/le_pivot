@@ -29,9 +29,12 @@ class User < ApplicationRecord
     roles.exists?(title: "store_manager")
   end
 
-  def has_store_access?(store_params)
+  def has_store_access?(action,store_params)
+    if action == "update"
+      store_params = Store.find(store_params).slug
+    end
     available_stores = stores.map {|store| store.slug}
-    available_stores.include?(store_params) && store_manager? || store_admin?
+    available_stores.include?(store_params)
   end
 
   def full_name
