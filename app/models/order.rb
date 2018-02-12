@@ -10,11 +10,11 @@ class Order < ApplicationRecord
     items.sum(:price)
   end
 
-  def add(item_hash)
-    item_hash.each do |item, quantity|
-      items << item
-      order_item = OrderItem.find_by(order: self, item_id: item.id)
-      order_item.update(quantity: quantity)
+  def add(cart)
+    cart.each do |cart_item|
+      items << Item.find(cart_item.id)
+      order_item = OrderItem.find_by(order: self, item_id: cart_item.id)
+      order_item.update(quantity: cart_item.quantity)
     end
   end
 
