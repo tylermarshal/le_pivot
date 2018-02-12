@@ -5,15 +5,18 @@ RSpec.feature "Unauthenticated users security" do
   let(:order){create(:order, status: "ordered", user_id: user.id)}
   let(:category){create(:category, title: "uniquorn")}
   let(:item){create(:item, title: "baby uniquorn", description: "cute", price: 35.55)}
+  let(:role){create(:role)}
   context "As an unauthenticated user" do
     it "I cannot view another user’s private data" do
-      visit dashboard_index_path
+      user.roles << role
+      
+      expect{
+        visit dashboard_index_path
+              }.to raise_error(ActionController::RoutingError)
 
-      expect(current_path).to eq(login_path)
-
-      visit order_path(order)
-
-      expect(current_path).to eq(login_path)
+      expect {
+        visit order_path(order)
+      }.to raise_error(ActionController::RoutingError)
     end
 
     it "I should be redirected to login/create account when I try to check out" do

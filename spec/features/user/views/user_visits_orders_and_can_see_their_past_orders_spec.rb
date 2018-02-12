@@ -2,17 +2,19 @@ require 'rails_helper'
 
 describe "As a user" do
   describe "visits /orders" do
+    let(:user){create(:user)}
+    let(:order_1) {create(:order, user_id: user.id)}
     it "can see all past orders" do
-      user = create(:user)
-      create(:order, user: user)
+      user.roles << create(:role)
       item = create(:item, price: 5.00)
-      items_with_quantity = [ {item => 2} ]
-      order_1 = create(:order_with_items, user: user, items_with_quantity: items_with_quantity)
+      OrderItem.create(order_id: order_1.id, item_id: item.id, quantity: 1)
+      OrderItem.create(order_id: order_1.id, item_id: item.id, quantity: 1)
+
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit '/orders'
 
-      expect(page).to have_css(".order", count: 2)
+      expect(page).to have_css(".order", count: 1)
 
       within("#order-#{order_1.id}") do
         expect(page).to have_content(order_1.id)

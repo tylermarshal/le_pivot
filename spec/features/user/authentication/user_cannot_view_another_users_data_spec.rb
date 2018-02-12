@@ -5,13 +5,17 @@ RSpec.feature "Authenticated users security" do
     scenario "I cannot view another user's order" do
       chino = create(:user, first_name: "Chino")
       khaki = create(:user, first_name: "Khaki")
+      role = Role.create(title: "registered_user")
+
+      chino.roles << role
+      khaki.roles << role
       stub_logged_in_user(khaki)
 
       order = create(:order, user: chino)
 
       expect {
         visit order_path(order)
-      }.to raise_error(ActiveRecord::RecordNotFound)
+      }.to raise_error(ActionController::RoutingError)
     end
 
     it "I cannot view the administrator screens" do

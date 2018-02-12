@@ -33,12 +33,7 @@ describe "validations" do
   context "it can have one of two roles" do
     it "has a role" do
       user = build(:user)
-      expect(user.role).to eq("default")
-    end
-
-    it "can be an admin" do
-      user = build(:user, role: "admin")
-      expect(user.role).to eq("admin")
+      expect(user.role).to eq(0)
     end
   end
 

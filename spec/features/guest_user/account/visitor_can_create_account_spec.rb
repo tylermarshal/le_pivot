@@ -6,6 +6,7 @@ feature "New user can create an account" do
 
     expect(page).to have_link("Login")
 
+    Role.create(title: "registered_user")
     click_on "Login"
 
     expect(current_path).to eq(login_path)

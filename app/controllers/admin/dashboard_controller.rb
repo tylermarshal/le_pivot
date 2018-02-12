@@ -1,5 +1,4 @@
 class Admin::DashboardController < ApplicationController
-  before_action :require_admin
 
   def index
     @orders = Order.check_for_status(params)

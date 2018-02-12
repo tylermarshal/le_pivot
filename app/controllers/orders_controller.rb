@@ -7,10 +7,12 @@ class OrdersController < ApplicationController
   end
 
   def show
-    if current_admin?
+    if current_user.platform_admin? 
       @order = Order.find(params[:id])
-    else
+    elsif current_user.id == params[:id].to_i
       @order = current_user.orders.find(params[:id])
+    else
+      not_found
     end
   end
 

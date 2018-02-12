@@ -1,5 +1,5 @@
 class Admin::Stores::ItemsController < ApplicationController
-  before_action :require_admin
+   
   def index
     @items = Item.all
     @store = Store.find_by(slug: params[:store])
@@ -14,7 +14,7 @@ class Admin::Stores::ItemsController < ApplicationController
     @categories = Category.all
     @store = Store.find_by(slug: params[:store])
     @item = @store.items.new(item_params)
-    if @item.save
+    if @item.save!
       redirect_to store_item_path(@item.store.slug, @item)
     else
       render :new
