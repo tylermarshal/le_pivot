@@ -27,7 +27,7 @@ describe "As a visitor can visit different stores and add items to the cart" do
     expect(page).to have_content("Light Saber", "Dove")
 =======
 RSpec.feature "Adding items to the cart" do
-  xit "can visit one store" do
+  it "can visit one store" do
     store1 = create(:store, name: "Plants")
     store2 = create(:store, name: "Books")
     create(:item, title: "Dove", store: store1)
