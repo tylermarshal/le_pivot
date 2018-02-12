@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
       redirect_to login_path
     else
       @user = User.find(current_user.id)
+        @user.roles << Role.where(title: "registered_uer") if @user.roles.empty?
     end
   end
 

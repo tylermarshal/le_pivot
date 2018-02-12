@@ -1,8 +1,11 @@
 require "rails_helper"
 
 describe "As a logged in Admin" do
-  let(:admin) { create(:user, role: "admin", email: "admin@example.com")}
-
+  let(:admin) { create(:user, email: "admin@example.com")}
+  let(:role){create(:role, title: "platform_admin")}
+  before :each do 
+    admin.roles << role
+  end
   it "I can modify my account data" do
     login_user(admin.email, admin.password)
     new_email_address = "kramer@example.com"
