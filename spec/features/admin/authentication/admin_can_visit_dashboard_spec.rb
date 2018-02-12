@@ -17,7 +17,8 @@ require 'rails_helper'
   describe "as a logged in user when I visit /admin/dashboard" do
     it "I see a 404 error" do
       default_user = User.create(first_name: "Admin", last_name: "McAdmin", email: "admin@admin.com", password: "boom")
-
+      role = Role.create(title: "registered_user")
+      default_user.roles << role
       allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(default_user)
 
       expect {
