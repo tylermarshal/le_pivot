@@ -16,12 +16,14 @@ RSpec.feature "Store manager item creation" do
     end
     it "I can create an item" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-
-      visit admin_store_items_path(item.store.slug)
+      category = create(:category)
+      visit admin_store_items_path(store.slug)
       click_on "Create New Item"
       fill_in "item[title]", with: "Onesie"
       fill_in "item[description]", with: "This Onesie is awesome!"
       fill_in "item[price]", with: "59.99"
+      select "#{category.title}", :from => "item_category_id"
+
       page.attach_file("item[image]", testing_image)
 
       click_on "Create Item"
