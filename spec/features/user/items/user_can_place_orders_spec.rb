@@ -13,19 +13,6 @@ RSpec.feature "User can place an order" do
     
     visit cart_path
 
-    within(".checkout") do
-      click_on("Checkout")
-    end
-
-    fill_in "session[email]", with: "testerson@testmail.com"
-    fill_in "session[password]", with: "testing"
-
-    within(".login-path") do
-      click_on("Login")
-    end
-
-    click_on "Cart"
-
     click_on "Checkout"
 
     expect(current_path).to eq('/orders')

@@ -29,13 +29,6 @@ class Cart
     end
   end
 
-  # def total_cost
-  #   sum = 0
-  #   @cart_items.each do |cart_item|
-  #     sum += (cart_item.cost)
-  #   end
-  # end
-
   def add_item(id)
     if check_item_exists(id).count > 0
       contents.each do |cart_item|

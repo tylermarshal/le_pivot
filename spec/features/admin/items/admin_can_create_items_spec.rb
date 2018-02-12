@@ -4,20 +4,19 @@ RSpec.feature "Admin item creation" do
   context "As an authenticated admin" do
     let(:admin){create(:user)}
     let(:role){create(:role, title: "platform_admin")}
-    let(:item){create(:item)}
     let(:store){create(:store)}
+    let(:item){create(:item, store: store)}
     before :each do 
       admin.roles << role
     end
     it "I can create an item" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-
       visit admin_store_items_path(item.store.slug)
       click_on "Create New Item"
       fill_in "item[title]", with: "Onesie"
       fill_in "item[description]", with: "This Onesie is awesome!"
       fill_in "item[price]", with: "59.99"
-      page.attach_file("item[image]", testing_image)
+      page.attach_file("file", testing_image)
 
       click_on "Create Item"
 

@@ -18,7 +18,7 @@
           <th>Subtotal</th>
         </tr>
         <tbody>
-          <% @cart_items.each do |cart_item| %>
+          <% @cart.contents.each do |cart_item| %>
             <div class="item-#{cart_item.id}">
               <tr>
                 <th scope="row"><strong><%= link_to cart_item.title, item_path(cart_item) %></strong></th>
