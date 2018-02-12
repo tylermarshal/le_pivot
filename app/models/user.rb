@@ -5,6 +5,9 @@ class User < ApplicationRecord
   has_many :user_roles
   has_many :roles, through: :user_roles
 
+  has_many :user_stores
+  has_many :stores, through: :user_stores
+
   validates :first_name, :last_name, presence: true
   validates :password, presence: true, allow_nil: true
   validates :email, presence: true, uniqueness: true
@@ -13,7 +16,7 @@ class User < ApplicationRecord
   def registered_user?
     roles.exists?(title: "registered_user")
   end
-  
+
   def store_admin?
     roles.exists?(title: "store_admin")
   end
@@ -25,7 +28,7 @@ class User < ApplicationRecord
   def store_manager?
     roles.exists?(title: "store_manager")
   end
-  
+
   def full_name
     first_name + " " + last_name
   end
