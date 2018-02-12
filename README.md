@@ -14,6 +14,7 @@ Install required gems:
 Load the database dump & the other following rake commands:
 ```
 rake import_dump:load
+rails db:migrate
 rake import_first_store:create
 rake import_all_stores:create
 rake recategorize_books:run
