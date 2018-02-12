@@ -10,9 +10,7 @@ class Item < ApplicationRecord
     default_url: "/images/missing.jpg",
     path: ":id/:style/:filename",
     storage: :cloudinary
-    # :default_url => '/images/missing.jpg', styles: {thumb: "68x68#", medium: "300x300#"},
-    # :path => ":rails_root/public/images/:id/:style/:filename",
-    # :url => "/images/:id/:style/:filename"
+
   validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/jpg', 'image/gif', 'image/png']
   enum condition: ["active", "retired"]
 
