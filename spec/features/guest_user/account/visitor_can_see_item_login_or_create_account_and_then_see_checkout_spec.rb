@@ -8,8 +8,10 @@ RSpec.describe "As a visitor" do
       visit store_items_path(item.store.slug)
       click_on "Add to cart"
       visit '/carts'
+      
       expect(page).to have_content("Create new account")
       expect(page).to have_content("Login")
+
       click_on "Create new account"
       fill_in "user[first_name]", with: "Tester"
       fill_in "user[last_name]", with: "McTesty"
@@ -17,7 +19,7 @@ RSpec.describe "As a visitor" do
       fill_in "user[password]", with: "testing"
       click_on "Submit"
       visit '/carts'
-
+      
       expect(page).to have_content("Banana Stand")
       expect(page).to have_content("1")
     end

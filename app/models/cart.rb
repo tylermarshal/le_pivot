@@ -8,12 +8,19 @@ class Cart
   def to_cart_items(initial_contents)
     if initial_contents.nil?
       @contents = []
+    elsif initial_contents.class == Array
+      @contents = []
+      @contents << CartItem.new(Item.new(initial_contents.first), quantity)
     else
       initial_contents.inject([]) do |result, (item_id, quantity)|
         result << CartItem.new(Item.find(item_id), quantity)
         result
       end 
     end
+  end
+
+  def to_cart_item(id)
+    @contents << CartItem.new(Item.find(id), 1)
   end
 
   def total_count
@@ -30,8 +37,18 @@ class Cart
   # end
 
   def add_item(id)
-    contents.each do |cart_item|
-      cart_item.quantity += 1 if cart_item.id == id
+    if check_item_exists(id).count > 0
+      contents.each do |cart_item|
+        cart_item.quantity += 1 if cart_item.id == id
+      end
+    else
+      to_cart_item(id)
+    end
+  end
+
+  def check_item_exists(id)
+    contents.select do |cart_item|
+      cart_item.id == id
     end
   end
 
