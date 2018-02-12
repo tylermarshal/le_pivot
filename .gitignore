@@ -21,5 +21,4 @@
 .DS_Store
 /coverage
 # Ignore secrets.yml file
-
-/config/cloudinary.yml
+cloudinary.yml
