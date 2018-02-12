@@ -1,8 +1,10 @@
 class Admin::Stores::ItemsController < ApplicationController
-   
+
+  before_action :require_admin
+
   def index
-    @items = Item.all
     @store = Store.find_by(slug: params[:store])
+    @items = @store.items
   end
 
   def new
@@ -43,6 +45,6 @@ class Admin::Stores::ItemsController < ApplicationController
   end
 
   def require_admin
-    render file: "/public/404" unless current_admin?
+    render file: "/public/404" unless current_user.platform_admin? || current_user.has_store_access?(params[:store])
   end
 end
