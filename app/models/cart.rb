@@ -10,6 +10,7 @@ class Cart
       @contents = []
     elsif initial_contents.class == Array
       @contents = []
+      binding.pry
       @contents << CartItem.new(Item.new(initial_contents.first), quantity)
     else
       initial_contents.inject([]) do |result, (item_id, quantity)|

@@ -3,7 +3,7 @@ module SantasLittleHelper
     Rails.root + "spec/support/images/test_image.jpg"
   end
 
-  def paperclip_image
-    File.open(testing_image)
-  end
+  # def paperclip_image
+  #   File.open(testing_image)
+  # end
 end
