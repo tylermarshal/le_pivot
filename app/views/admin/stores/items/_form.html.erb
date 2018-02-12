@@ -18,13 +18,13 @@
 
   <div class="field">
 		<%= form.label :image %> <br />
-    <%= form.file_field :image %>
+    <%= form.cl_image_upload :image %>
   </div>
   
   <div class="category_select_box">
+    <%= form.label :category %> <br />
     <%= form.select(:category_id, @categories.map { |category| [category.title, category.id] }) %>
   </div>
-
 
   <div class="actions">
     <%= form.submit %>
