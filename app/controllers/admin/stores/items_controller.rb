@@ -15,6 +15,9 @@ class Admin::Stores::ItemsController < ApplicationController
     @store = Store.find_by(slug: params[:store])
     @item = @store.items.new(item_params)
     if @item.save!
+      image_url = params[:file].tempfile
+      upload = Cloudinary::Uploader.upload(image_url)
+      @item.image = upload["url"]
       redirect_to store_item_path(@item.store.slug, @item)
     else
       render :new

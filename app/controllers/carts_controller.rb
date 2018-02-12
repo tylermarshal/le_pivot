@@ -2,9 +2,7 @@ class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
-    @cart_items = @cart.cart_items.map do |item, quantity|
-      CartItem.new(item, quantity)
-    end
+    @cart_items = @cart.contents
   end
 
   def create
@@ -12,7 +10,7 @@ class CartsController < ApplicationController
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
     flash[:notice] = "You now have #{pluralize(@cart.count_of(item.id), item.title)}."
-    redirect_back(fallback_location: root_path)
+    redirect_back(fallback_location: items_path)
   end
 
   def update

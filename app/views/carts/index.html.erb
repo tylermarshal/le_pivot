@@ -18,7 +18,7 @@
           <th>Subtotal</th>
         </tr>
         <tbody>
-          <% @cart_items.each do |cart_item| %>
+          <% @cart.contents.each do |cart_item| %>
             <div class="item-#{cart_item.id}">
               <tr>
                 <th scope="row"><strong><%= link_to cart_item.title, item_path(cart_item) %></strong></th>
@@ -35,11 +35,11 @@
         </tbody>
     </table>
     <div class="total">
-      <% sum = 0 %>
-      <% @cart_items.each do |cart_item| %>
-        <% sum += (cart_item.total_cost) %>
-      <% end %>
-      <p><b>Total: <%= number_to_currency(sum) %></b></p>
+      # <% sum = 0 %>
+      # <% @cart_items.each do |cart_item| %>
+      #   <% sum += (cart_item.total_cost) %>
+      # <% end %>
+      # <p><b>Total: <%= number_to_currency(sum) %></b></p>
     </div>
     <div class="checkout">
       <% if current_user %>

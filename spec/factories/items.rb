@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence(:title) {|n| "Item #{n}" }
     description "Dead dove. Do not eat."
     price 10.00
-    image File.open("./spec/support/images/test_image.jpg")
+    image "/spec/support/images/test_image.jpg"
     category
     store
   end

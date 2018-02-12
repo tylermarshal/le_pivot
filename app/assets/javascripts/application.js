@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require cloudinary
 //= require Chart.min
 //= require rails-ujs
 //= require jquery3
@@ -19,6 +20,12 @@
 
 /* Float Label Pattern Plugin for Bootstrap 3.1.0 by Travis Wilson
 **************************************************/
+
+$(function () {
+    if ($.fn.cloudinary_fileupload !== undefined) {
+        $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
+    }
+});
 
 (function ($) {
     $.fn.floatLabels = function (options) {

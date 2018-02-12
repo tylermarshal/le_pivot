@@ -6,10 +6,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   </head>
 
   <body class="<%= params[:controller] %>-<%= params[:action] %>">
+    <%= cloudinary_js_config %>
       <div class="container-fullwidth color-gradient flex-center">
       <%= render "shared/nav" %>
       </div>

@@ -5,13 +5,13 @@ class Item < ApplicationRecord
   has_many :orders, through: :order_items
   validates :title     ,  presence: true, uniqueness: true
   validates :description, :price, presence: true
-  has_attached_file :image,
-    styles: {thumb: "68x68#", medium: "300x300#"},
-    default_url: "/images/missing.jpg",
-    path: ":id/:style/:filename",
-    storage: :cloudinary
+  # has_attached_file :image,
+  #   styles: {thumb: "68x68#", medium: "300x300#"},
+  #   default_url: "/images/missing.jpg",
+  #   path: ":id/:style/:filename",
+  #   storage: :cloudinary
 
-  validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/jpg', 'image/gif', 'image/png']
+  # validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/jpg', 'image/gif', 'image/png']
   enum condition: ["active", "retired"]
 
 

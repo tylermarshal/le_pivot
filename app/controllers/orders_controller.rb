@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
 
   def new
     order = Order.create(status: "ordered", user_id: current_user.id)
-    item_hash = @cart.cart_items
+    item_hash = @cart.contents
     order.add(item_hash)
     order.order_total
     @cart.destroy

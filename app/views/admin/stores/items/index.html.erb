@@ -4,10 +4,10 @@
     <% @items.each do |item| %>
       <div class="center-block">
         <div class="card border-white" style="width: 7rem;">
-          <%= image_tag item.image.url(:medium), class: "card-img-top" %>
+          <%= cl_image_tag item.image, class: "card-img-top" %>
           <div class="card-body">
-            <center><p class='small'><strong><%= link_to item.title, item_path(item) %></strong></p>
-              <!-- <p>Description: <%= item.description %></p> -->
+            <center><p class='small'><strong><%= item.title %></strong></p>
+              <p>Description: <%= item.description %></p>
               <footer>
                 <p class='small'>Price: $<%= item.price %></p>
                 <p><%= link_to "Edit", edit_admin_store_item_path(@store.slug, item), class: "badge badge-info"  %></p>
