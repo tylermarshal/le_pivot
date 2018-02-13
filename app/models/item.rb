@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :category
   belongs_to :store
-  has_many :order_items
+  has_many :order_items, dependent: :destroy
   has_many :orders, through: :order_items
   validates :title     ,  presence: true, uniqueness: true
   validates :description, :price, presence: true
@@ -9,7 +9,9 @@ class Item < ApplicationRecord
     styles: {thumb: "68x68#", medium: "300x300#"},
     default_url: "/images/missing.jpg",
     path: ":id/:style/:filename",
-    storage: :cloudinary
+    keep_old_files: true,
+    storage: :cloudinary,
+    overwrite: true
 
   validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/jpg', 'image/gif', 'image/png']
   enum condition: ["active", "retired"]

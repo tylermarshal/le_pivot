@@ -19,6 +19,7 @@ gem 'jquery-rails'
 gem 'friendly_id', '~> 5.1.0'
 gem "paperclip", "~> 5.0.0"
 gem 'chart-js-rails'
+gem 'paperclip-cloudinary'
 gem 'cloudinary'
 
 group :development, :test do
