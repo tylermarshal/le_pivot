@@ -22,7 +22,5 @@ rake book_categories:delete
 rake roles:create
 ```
 
-After the import you should see a return value of 1011 when running `Item.count` in the console.
-
 All users have a password of `password` if you want to login and explore.
 
