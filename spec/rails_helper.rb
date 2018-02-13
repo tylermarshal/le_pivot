@@ -19,6 +19,10 @@ RSpec.configure do |config|
   config.include SantasLittleHelper
   config.include FeatureHelper
 
+  config.before(:each) do
+    DatabaseCleaner.clean
+  end
+
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   config.infer_spec_type_from_file_location!
