@@ -5,6 +5,8 @@ describe "As a logged in Admin" do
   let(:role){create(:role, title: "platform_admin")}
   before :each do 
     admin.roles << role
+    6.times do create(:store)
+    end
   end
   it "I can modify my account data" do
     login_user(admin.email, admin.password)
