@@ -13,6 +13,7 @@ class Permission
       return true if controller == "admin/dashboard" && action == "index"
       return true if controller == "dashboard" && action == "index"
       return true if controller == "admin/analytics" && action == "index"
+      return true if controller == "admin/stores" && action == "index"
       return true if controller == "admin/stores/items" && action.in?(["index", "new", "create", "edit", "update"])
       return true if controller == "main" && action == "index"
       return true if controller == "orders" && action.in?(["index", "show", "update", "new"])
@@ -31,7 +32,7 @@ class Permission
       return true if controller == "main" && action =="index"
       return true if controller == "items" && action.in?(["index", "show"])
       return true if controller == "stores" && action.in?(["index", "show"])
-      return true if controller == "orders" && action.in?(["index", "show", "update", "new"])      
+      return true if controller == "orders" && action.in?(["index", "show", "update", "new"])
       return true if controller == "sessions" && action.in?(["create", "new", "destroy"])
       return true if controller == "admin/dashboard" && action == "index"
       return true if controller == "dashboard" && action == "index"
