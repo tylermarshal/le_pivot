@@ -4,12 +4,14 @@
   <title><%= @category.title %> Category: Shop Today! | HomeBodies</title>
 </head>
 <body>
-
+  <div class="flex-center">
+    <h1><%= @category.title.capitalize %></h1>
+  </div>
   <div class="container">
     <div class="row items text-center">
       <% @category.items.each do |item| %>
         <div class="center-block">
-          <div class="card border-white" style="width: 15rem;">
+          <div style="width: 15rem;">
             <%= image_tag item.image, class: "card-img-top" %>
             <div class="card-body">
               <p><strong><%= link_to item.title, item_path(item) %></strong></p>

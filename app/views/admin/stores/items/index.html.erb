@@ -1,9 +1,12 @@
+<div class="flex-center">
+  <h1><%= @store.name %></h1>
+</div>
 <div class="container">
   <%= link_to "Create New Item", new_admin_store_item_path(@store.slug), class: "badge badge-success center" %>
   <div class="row">
     <% @items.each do |item| %>
       <div class="center-block">
-        <div class="card border-white" style="width: 7rem;">
+        <div style="width: 7rem;">
           <%= image_tag item.image.url(:medium), class: "card-img-top" %>
           <div class="card-body">
             <center><p class='small'><strong><%= link_to item.title, item_path(item) %></strong></p>
