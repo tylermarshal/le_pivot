@@ -10,23 +10,23 @@
   <%= image_tag('full-succulent-banner.png', class: "hero") %>
 </div>
 
-  <div class="wrapper">
+  <div class="store-wrapper">
     <%= link_to store_items_path(@stores[1].slug) do  %>
-      <div class="box succulent-store"><b>Sacred Thistle</b></div>
+      <div class="store-box succulent-store"><b>Sacred Thistle</b></div>
     <% end %>
     <%= link_to store_items_path(@stores[2].slug) do  %>
-      <div class="box ceramics-store">Stone Leaf Pottery</div>
+      <div class="store-box ceramics-store">Stone Leaf Pottery</div>
     <% end %>
     <%= link_to store_items_path(@stores[3].slug) do  %>
-      <div class="box decor-store"><b>Creative Living Décor</b></div>
+      <div class="store-box decor-store"><b>Creative Living Décor</b></div>
     <% end %>
     <%= link_to store_items_path(@stores[4].slug) do  %>
-      <div class="box candle-store">Aroma Candles</div>
+      <div class="store-box candle-store">Aroma Candles</div>
     <% end %>
     <%= link_to store_items_path(@stores[5].slug) do  %>
-      <div class="box soap-store"><b>Lather Soap</b></div>
+      <div class="store-box soap-store"><b>Lather Soap</b></div>
     <% end %>
     <%= link_to store_items_path(@stores[0].slug) do  %>
-      <div class="box book-store">Book Bar</div>
+      <div class="store-box book-store">Book Bar</div>
     <% end %>
   </div>

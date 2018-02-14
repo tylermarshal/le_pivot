@@ -103,7 +103,7 @@ a {
   height: auto;
 }
 
-.wrapper {
+.store-wrapper {
 	display: grid;
   grid-gap: 75px;
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr) ) ;
@@ -111,7 +111,7 @@ a {
   margin: 3% 10% 0 10%;
 }
 
-.box {
+.store-box {
 	color: #fff;
 	border-radius: 5px;
 	padding: 20px;
