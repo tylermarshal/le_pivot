@@ -7,6 +7,11 @@ class Stores::OrdersController < ApplicationController
     @orders = @items.map do |item|
       item.orders
     end.flatten
+    if params[:status]
+      @orders = @orders.select do |order|
+        order.status == params[:status]
+      end
+    end
   end
 
   def show
