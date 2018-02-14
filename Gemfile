@@ -21,6 +21,7 @@ gem "paperclip", "~> 5.0.0"
 gem 'chart-js-rails'
 gem 'paperclip-cloudinary'
 gem 'cloudinary'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

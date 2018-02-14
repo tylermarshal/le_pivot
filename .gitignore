@@ -22,3 +22,6 @@
 /coverage
 # Ignore secrets.yml file
 cloudinary.yml
+
+# Ignore application configuration
+/config/application.yml
