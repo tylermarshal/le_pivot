@@ -3,7 +3,6 @@
   <nav class="nav nav-tabs" id="myTab" role="tablist">
     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-expanded="true">View Orders</a>
     <%= link_to "Update Account", edit_user_path(current_user), class: "nav-item nav-link" %>
-    <%= link_to "View Analytics", admin_analytics_path, class: "nav-item nav-link" %>
 
     </div>
   </nav>
@@ -18,10 +17,10 @@
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <% Order.count_by_status.each do |status, count| %>
-            <li><%= link_to status.capitalize, admin_dashboard_index_path(status: status) %></li>
+            <li><%= link_to status.capitalize, store_orders_path(@store, status: status) %></li>
             <% end %>
             <li role="separator" class="divider"></li>
-            <li><%= link_to 'View all', admin_dashboard_index_path %></li>
+            <li><%= link_to 'View all', store_orders_path(@store) %></li>
           </ul>
         </div>
       </div>
