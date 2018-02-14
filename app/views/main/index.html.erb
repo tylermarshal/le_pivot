@@ -3,10 +3,22 @@
 </div>
 
   <div class="wrapper">
-    <div class="box succulent-store">Sacred Thistle Plant Nursery</div>
-    <div class="box ceramics-store">Stone Leaf Pottery</div>
-    <div class="box decor-store">Creative Living Décor</div>
-    <div class="box candle-store">Aroma Candles</div>
-    <div class="box soap-store">Lather Soap</div>
-    <div class="box book-store">Book Bar</div>
+    <%= link_to store_items_path(@stores[1].slug) do  %> 
+      <div class="box succulent-store">Sacred Thistle Plant Nursery</div>
+    <% end %>
+    <%= link_to store_items_path(@stores[2].slug) do  %>       
+      <div class="box ceramics-store">Stone Leaf Pottery</div>
+    <% end %>      
+    <%= link_to store_items_path(@stores[3].slug) do  %>       
+      <div class="box decor-store">Creative Living Décor</div>
+    <% end %>          
+    <%= link_to store_items_path(@stores[4].slug) do  %>       
+      <div class="box candle-store">Aroma Candles</div>
+    <% end %>              
+    <%= link_to store_items_path(@stores[5].slug) do  %>           
+      <div class="box soap-store">Lather Soap</div>
+    <% end %>                  
+    <%= link_to store_items_path(@stores[0].slug) do  %>               
+      <div class="box book-store">Book Bar</div>
+    <% end %>                      
   </div>
