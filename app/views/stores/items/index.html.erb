@@ -11,7 +11,7 @@
     <div class="row">
       <% @items.each do |item| %>
         <div class="center-block">
-          <div class="card border-white" style="width: 15rem;">
+          <div class="card border-white margin-top-5" style="width: 15rem;">
             <%= image_tag item.image.url, size: "250" %>
             <div class="card-body info-section">
               <center><p><strong><%= link_to item.title, item_path(item) %></strong></p>
