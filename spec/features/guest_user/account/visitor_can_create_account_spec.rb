@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature "New user can create an account" do
+  before :each do
+     6.times do create(:store)
+    end
+  end
   scenario "with valid info" do
     visit '/'
 
