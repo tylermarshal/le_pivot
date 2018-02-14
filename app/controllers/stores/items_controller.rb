@@ -1,6 +1,6 @@
 class Stores::ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Store.find_by(slug: params[:store]).items
   end
 
   def show
