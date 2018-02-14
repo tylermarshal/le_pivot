@@ -58,7 +58,7 @@ footer{
 
 a:hover{
   text-decoration: none;
-  color: $background-color;
+  color: #0b3831;
 }
 
 div.container {
@@ -115,8 +115,8 @@ a {
   background: image-url(cactus-store) no-repeat center center;
   background-size: cover;
   color: $font-color;
-  font: {
-    family: 'Rancho', 'Pacifico', cursive;
+  font {
+    family: $rancho;
     size: 30px;
   }
 }
@@ -125,8 +125,8 @@ a {
   background: image-url(ceramic-2) no-repeat center center;
   background-size: cover;
   color: $font-color;
-  font: {
-    family: 'Josefin Slab', 'Pacifico', cursive;
+  font {
+    family: $josefin;
   }
 }
 
@@ -134,7 +134,7 @@ a {
   background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), image-url(decor-possible) no-repeat center center;
   background-size: cover;
   font: {
-    family: 'EB Garamond', 'Pacifico', cursive;
+    family: $garamond;
   }
 }
 
@@ -142,7 +142,7 @@ a {
   background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), image-url(candles) no-repeat center center;
   background-size: cover;
   font: {
-    family: 'Quicksand', 'Pacifico', cursive;
+    family: $quicksand;
   }
 }
 
@@ -150,7 +150,7 @@ a {
   background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), image-url(soap) no-repeat center center;
   background-size: cover;
   font: {
-    family: 'EB Garamond', 'Pacifico', cursive;
+    family: $garamond;
   }
 }
 
@@ -159,7 +159,7 @@ a {
   background-size: cover;
   color: $font-color;
   font: {
-    family: 'BioRhyme', 'Pacifico', cursive;
+    family: $biorhyme;
   }
 }
 
