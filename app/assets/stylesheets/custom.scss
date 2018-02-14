@@ -115,34 +115,51 @@ a {
   background: image-url(cactus-store) no-repeat center center;
   background-size: cover;
   color: $font-color;
+  font: {
+    family: 'Pacifico', cursive;
+  }
 }
 
 .ceramics-store {
   background: image-url(ceramic-2) no-repeat center center;
   background-size: cover;
   color: $font-color;
+  font: {
+    family: 'Pacifico', cursive;
+  }
 }
 
 .decor-store {
   background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), image-url(decor-possible) no-repeat center center;
   background-size: cover;
-  // color: $font-color;
+  font: {
+    family: 'Pacifico', cursive;
+  }
 }
 
 .candle-store {
   background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), image-url(candles) no-repeat center center;
   background-size: cover;
+  font: {
+    family: 'Pacifico', cursive;
+  }
 }
 
 .soap-store {
   background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), image-url(soap) no-repeat center center;
   background-size: cover;
+  font: {
+    family: 'Pacifico', cursive;
+  }
 }
 
 .book-store {
   background: image-url(book) no-repeat center center;
   background-size: cover;
   color: $font-color;
+  font: {
+    family: 'Pacifico', cursive;
+  }
 }
 
 
