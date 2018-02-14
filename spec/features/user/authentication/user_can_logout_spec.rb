@@ -1,6 +1,10 @@
  require 'rails_helper'
 
 RSpec.describe "As a visitor I can login" do
+  before :each do
+    6.times do create(:store)
+    end
+  end
   it "as a user I can log out" do
     user = User.create(first_name: "Tester", last_name: "McTesty", email: "testerson@testmail.com", password: "testing")
     role = Role.create(title: "registered_user")
