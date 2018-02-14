@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   namespace :stores, as: :store, path: ':store' do
     resources :items, only: [:index, :show]
+    resources :orders, only: [:index, :show]
   end
 
   resources :stores, only: [:index]

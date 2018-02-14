@@ -14,12 +14,12 @@ class ApplicationController < ActionController::Base
   def set_categories
     @categories = Category.all
   end
-  
-  private
-  
+
   def not_found
     raise ActionController::RoutingError.new('Not Found')
   end
+  
+  private
 
   def authorize!    
     not_found unless current_permission.authorized?
