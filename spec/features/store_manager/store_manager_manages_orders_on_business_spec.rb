@@ -60,7 +60,7 @@ feature "A store manager manages orders on their business" do
 
     it "ordered" do
       click_on("Ordered")
-      
+
       expect(current_path).to eq store_orders_path(store)
       expect(page).to have_link ordered_order.id, href: order_path(ordered_order)
       expect(page).not_to have_link paid_order.id
@@ -92,19 +92,51 @@ feature "A store manager manages orders on their business" do
   end
 
   context "they can change status" do
+    before(:each) do
+      visit store_orders_path(store)
+    end
+
     context "of a paid order" do
-      it "to cancelled" do
+      xit "to cancelled" do
+        within(".order-#{paid_order.id}") do
+          expect(page).to have_content("Paid")
+
+          click_on("Cancel")
+
+          expect(page).not_to have_content("Paid")
+        end
       end
 
       it "to completed" do
+        within(".order-#{paid_order.id}") do
+          expect(page).to have_content("Paid")
+
+          click_on("Completed")
+
+          expect(page).to have_content("Completed")
+        end
       end
     end
 
     context "of a ordered order" do
-      it "to cancelled" do
+      xit "to cancelled" do
+         within(".order-#{ordered_order.id}") do
+          expect(page).to have_content("Ordered")
+
+          click_on("Cancel")
+
+          expect(page).to have_content("Cancelled")
+        end
       end
 
       it "to paid" do
+        within(".order-#{ordered_order.id}") do
+          expect(page).to have_content("Ordered")
+
+          click_on("Paid")
+
+          expect(page).to have_content("Paid")
+        end
       end
     end
   end
