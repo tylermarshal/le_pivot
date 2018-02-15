@@ -15,7 +15,7 @@ describe "Platform admin can approve new business creation" do
     expect(current_path).to eq(admin_stores_path)
   end
 
-  it 'shows all existing stores and their states' do
+  it 'shows all existing stores and their status' do
     admin = User.create(first_name: "Tester", last_name: "McTesty", email: "testerson@testmail.com", password: "testing")
     role = Role.create(title: "platform_admin")
     store = Store.create!(name: 'Kitten Store', status: 'pending')
@@ -25,16 +25,16 @@ describe "Platform admin can approve new business creation" do
 
     login_user(admin.email, "testing")
 
-
     expect(page).to have_content "Administrator"
     click_on "Manage Businesses"
+    expect(current_path).to eq(admin_stores_path)
     #within store button?
     #expect kitten store to be pending
     expect(page).to have_content("pending")
     # and it has approve and deny buttons
-    expect(page).to have_content("deny")
+    expect(page).to have_link("Approve")
     #expect puppy store to be active
-    expect(page).to have_content("active")
+    # expect(page).to have_content("active")
     # and it has no buttons
     #expect bunny store to be denied
     # and it has no buttons
@@ -48,7 +48,6 @@ describe "Platform admin can approve new business creation" do
 
     login_user(admin.email, "testing")
 
-
     expect(page).to have_content "Administrator"
     click_on "Manage Businesses"
     expect(page).to have_content("Kitten Store")
@@ -57,6 +56,6 @@ describe "Platform admin can approve new business creation" do
     # click on Approve button
     click_on "Approve"
     # expect kitten store to now have approved status
-    expect(page).to have_content("approved")
+    expect(page).to have_content("active")
   end
 end
