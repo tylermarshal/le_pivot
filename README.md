@@ -26,3 +26,7 @@ rake book_images:upload
 
 All users have a password of `password` if you want to login and explore.
 
+## Database Schema
+
+[database schema](https://i.imgur.com/5lyGtdL.png)
+
