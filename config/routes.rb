@@ -35,6 +35,9 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
 
+resources :developer, only: [:create]
+  get "/settings/developer", to: "developer#index", as: "developer"
+
   get '/cart', :to => 'carts#index', :as => 'cart'
 
   resources :items, only: [:index, :show]
