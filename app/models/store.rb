@@ -3,6 +3,8 @@ class Store < ApplicationRecord
 
   before_validation :generate_slug
 
+  enum status: [ :online, :offline ]
+
   validates :name, uniqueness: true
   validates :slug, uniqueness: true
 

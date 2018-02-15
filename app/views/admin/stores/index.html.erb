@@ -1,0 +1,47 @@
+<div class="flex-center margin-top-5">
+  <h1>Admin Dashboard</h3>
+</div>
+<div class="container">
+  <nav class="nav nav-tabs" id="myTab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-expanded="true">View Stores</a>
+    <%= link_to "Update Account", edit_user_path(current_user), class: "nav-item nav-link" %>
+    <%= link_to "View Analytics", admin_analytics_path, class: "nav-item nav-link" %>
+    <%= link_to "View Orders", orders_path, class: "nav-item nav-link" %>
+</div>
+  </nav>
+    <div class="container margin-top-5">
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Store #</th>
+                <th>Store Status</th>
+                <th>Change Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @stores.each do |store| %>
+                <tr class="store-<%= store.id %>">
+                  <th scope="row">
+                    <%= link_to store.id, store_path(store) %>
+                  </th>
+                  <td class="status"><%= store.status.capitalize %></td>
+                  <% if store.status == "offline" %>
+                      <td><%= button_to "Take Online", admin_store_path(store, status: "online"), method: :put, class: "btn btn-success" %></td>
+                  <% elsif store.status == "online" %>
+                    <td><%= button_to "Take Offline", admin_store_path(store, status: "offline"), method: :put, class: "btn btn-danger" %></td>
+                  <% else %>
+                    <td></td>
+                  <% end %>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+     </div>
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+    <div class="tab-pane fade" id="nav-dropdown1" role="tabpanel" aria-labelledby="nav-dropdown1-tab">...</div>
+    <div class="tab-pane fade" id="nav-dropdown2" role="tabpanel" aria-labelledby="nav-dropdown2-tab">...</div>
+  </div>
+</div>
