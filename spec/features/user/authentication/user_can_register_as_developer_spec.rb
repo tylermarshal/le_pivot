@@ -12,7 +12,7 @@ describe "a logged in user visits their dashboard" do
     visit dashboard_index_path
 
     within(".footer") do
-      click_on "Developer"
+      click_on "Developer Settings"
     end
     expect(current_path).to eq ("/settings/developer")
 
