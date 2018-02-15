@@ -6,12 +6,12 @@ class Item < ApplicationRecord
   validates :title     ,  presence: true, uniqueness: true
   validates :description, :price, presence: true
   has_attached_file :image,
-    styles: {thumb: "68x68#", medium: "300x300#"},
     default_url: "/images/missing.jpg",
-    path: ":id/:style/:filename",
+    path: ":id/:filename",
     keep_old_files: true,
     storage: :cloudinary,
-    overwrite: true
+    overwrite: true,
+    :cloudinary_credentials => Rails.root.join("config/cloudinary.yml")
 
   validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/jpg', 'image/gif', 'image/png']
   enum condition: ["active", "retired"]
