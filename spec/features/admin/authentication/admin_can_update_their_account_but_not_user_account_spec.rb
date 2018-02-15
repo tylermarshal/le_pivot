@@ -36,7 +36,7 @@ describe "As a logged in Admin" do
   it "returns a welcome message for admins" do
     allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(admin)
     visit admin_dashboard_index_path
-    expect(page).to have_content("You're logged in as an Administrator")
+    expect(page).to have_content("Admin Dashboard")
   end
 
   it "returns a 404 when a non-admin visits the admin dashboard" do
