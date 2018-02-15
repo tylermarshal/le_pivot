@@ -12,30 +12,32 @@ feature "Business can be taken online or offline" do
   end
 
   context "by a valid platform admin" do
-    it "a store can be taken online" do
+    it "an online store can be taken offline" do
       expect(online_store.status).to eq "online"
 
       visit admin_dashboard_index_path
       click_on "View Stores"
       within(".store-#{online_store.id}") do
         click_on("Take Offline")
-        expect(page).to have_content "Take Online"
       end
+      
+      online_store.reload
 
       expect(online_store.status).to eq "offline"
     end
 
-    it "a store can be taken offline" do
+    it "an offline store can be taken online" do
       expect(offline_store.status).to eq "offline"
 
       visit admin_dashboard_index_path
       click_on "View Stores"
       within(".store-#{offline_store.id}") do
         click_on("Take Online")
-        expect(page).to have_content "Take Offline"
       end
 
-      expect(online_store.status).to eq "online"
+      offline_store.reload
+
+      expect(offline_store.status).to eq "online"
     end
   end
 end
