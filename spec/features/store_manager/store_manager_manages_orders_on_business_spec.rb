@@ -97,14 +97,14 @@ feature "A store manager manages orders on their business" do
     end
 
     context "of a paid order" do
-      xit "to cancelled" do
+      it "to cancelled" do
         within(".order-#{paid_order.id}") do
           expect(page).to have_content("Paid")
 
           click_on("Cancel")
-
-          expect(page).not_to have_content("Paid")
         end
+
+        expect(page).to have_content("Cancelled")
       end
 
       it "to completed" do
@@ -119,14 +119,14 @@ feature "A store manager manages orders on their business" do
     end
 
     context "of a ordered order" do
-      xit "to cancelled" do
-         within(".order-#{ordered_order.id}") do
+      it "to cancelled" do
+        within(".order-#{ordered_order.id}") do
           expect(page).to have_content("Ordered")
 
           click_on("Cancel")
-
-          expect(page).to have_content("Cancelled")
         end
+
+        expect(page).to have_content("Cancelled")
       end
 
       it "to paid" do
