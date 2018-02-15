@@ -20,6 +20,8 @@ rake import_all_stores:create
 rake recategorize_books:run
 rake book_categories:delete
 rake roles:create
+rake images:upload
+rake book_images:upload
 ```
 
 All users have a password of `password` if you want to login and explore.
