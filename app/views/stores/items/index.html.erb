@@ -14,7 +14,7 @@
           <div class="card border-white margin-top-5" style="width: 15rem;">
             <%= cl_image_tag item.image.url, size: "250" %>
             <div class="card-body info-section">
-              <center><p><strong><%= link_to item.title, store_item_path(item.store, item) %></strong></p>
+              <center><p><strong><%= link_to item.title, store_item_path(item.store.slug, item) %></strong></p>
                 <!-- <p>Description: <%= item.description %></p> -->
                 <p>Price: <%= number_to_currency(item.price) %></p>
                 <% unless item.retired? %>
