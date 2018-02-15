@@ -11,11 +11,12 @@ Rails.application.routes.draw do
   delete '/logout', :to => 'sessions#destroy'
 
   get '/account/edit', :to => 'users#edit'
+  patch '/admin/stores', to: 'admin/stores#update'
 
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :analytics, only: [:index]
-    resources :stores, only: [:index, :edit, :update]
+    resources :stores, only: [:index]
     namespace :stores, as: :store, path: ':store' do
       resources :items, only: [:index, :new, :create, :edit, :update]
     end
