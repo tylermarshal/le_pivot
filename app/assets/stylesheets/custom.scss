@@ -104,18 +104,18 @@ a {
 }
 
 .store-wrapper {
-	display: grid;
+  display: grid;
   grid-gap: 75px;
-	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr) ) ;
-	color: #444;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr) ) ;
+  color: #444;
   margin: 3% 10% 0 10%;
 }
 
 .store-box {
-	color: #fff;
-	border-radius: 5px;
-	padding: 20px;
-	font-size: 150%;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
   margin-bottom: 10%;
   height: 400px;
 }
@@ -186,7 +186,7 @@ a {
       .float-label-control textarea:focus { padding-bottom: 4px; }
   .float-label-control input, .float-label-control textarea { display: block; width: 100%; padding: 0.1em 0em 1px 0em; border: none; border-radius: 0px; border-bottom: 1px solid $font-color; outline: none; margin: 0px; background: none; }
   .float-label-control textarea { padding: 0.1em 0em 5px 0em; }
-  .float-label-control label { position: absolute; font-weight: normal; top: -1.0em; left: 0.08em; color: $font-color; z-index: -1; font-size: 0.85em; -moz-animation: float-labels 300ms none ease-out; -webkit-animation: float-labels 300ms none ease-out; -o-animation: float-labels 300ms none ease-out; -ms-animation: float-labels 300ms none ease-out; -khtml-animation: float-labels 300ms none ease-out; animation: float-labels 300ms none ease-out; /* There is a bug sometimes pausing the animation. This avoids that.*/ animation-play-state: running !important; -webkit-animation-play-state: running !important; }
+  .float-label-control label { font-weight: normal; top: -1.0em; left: 0.08em; color: $font-color; z-index: -1; font-size: 0.85em; -moz-animation: float-labels 300ms none ease-out; -webkit-animation: float-labels 300ms none ease-out; -o-animation: float-labels 300ms none ease-out; -ms-animation: float-labels 300ms none ease-out; -khtml-animation: float-labels 300ms none ease-out; animation: float-labels 300ms none ease-out; /* There is a bug sometimes pausing the animation. This avoids that.*/ animation-play-state: running !important; -webkit-animation-play-state: running !important; }
   .float-label-control input.empty + label,
   .float-label-control textarea.empty + label { top: 0.1em; font-size: 1.5em; animation: none; -webkit-animation: none; }
   .float-label-control input:not(.empty) + label,
