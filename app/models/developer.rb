@@ -4,6 +4,6 @@ class Developer < ApplicationRecord
   before_save :generate_api_key
 
   def generate_api_key
-    @api_key = SecureRandom.urlsafe_base64
+    self.api_key = SecureRandom.urlsafe_base64
   end
 end
