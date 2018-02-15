@@ -3,7 +3,7 @@ require "rails_helper"
 describe "As a logged in Admin" do
   let(:admin) { create(:user, email: "admin@example.com")}
   let(:role){create(:role, title: "platform_admin")}
-  before :each do 
+  before :each do
     admin.roles << role
     6.times do create(:store)
     end
