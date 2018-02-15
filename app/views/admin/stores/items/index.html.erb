@@ -9,7 +9,7 @@
         <div style="width: 7rem;">
           <%= image_tag item.image.url(:medium), class: "card-img-top" %>
           <div class="card-body">
-            <center><p class='small'><strong><%= link_to item.title, store_item_path(@store, item) %></strong></p>
+            <center><p class='small'><strong><%= link_to item.title, store_item_path(@store.slug, item) %></strong></p>
               <!-- <p>Description: <%= item.description %></p> -->
               <footer>
                 <p class='small'>Price: $<%= item.price %></p>

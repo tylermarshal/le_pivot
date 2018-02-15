@@ -20,7 +20,7 @@ class CartsController < ApplicationController
     if params[:condition] == "decrease"
       @cart.decrease_quantity(item_id)
       if @cart.contents[item_id].nil?
-        flash[:successfully_removed] = "Successfully removed <a href=#{store_item_path(@item.store, @item )}>#{@item.title}</a> from your cart."
+        flash[:successfully_removed] = "Successfully removed <a href=#{store_item_path(@item.store.slug, @item )}>#{@item.title}</a> from your cart."
       end
     elsif params[:condition] == "increase"
       @cart.increase_quantity(item_id)
