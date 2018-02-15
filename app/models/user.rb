@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :user_stores
   has_many :stores, through: :user_stores
 
+  has_one :developer
+
   validates :first_name, :last_name, presence: true
   validates :password, presence: true, allow_nil: true
   validates :email, presence: true, uniqueness: true
