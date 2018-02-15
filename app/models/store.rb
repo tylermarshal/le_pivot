@@ -6,13 +6,9 @@ class Store < ApplicationRecord
   validates :name, uniqueness: true
   validates :slug, uniqueness: true
 
-  enum status: [:active, :pending, :denied]
+  enum status: [:pending, :active, :denied]
 
   def generate_slug
     self.slug = name.parameterize
-  end
-
-
-  def approve!
   end
 end
