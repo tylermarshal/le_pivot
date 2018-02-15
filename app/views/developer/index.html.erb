@@ -1,0 +1,18 @@
+<div class="flex-center margin-top-5">
+  <h1>Developer Settings</h1>
+</div>
+<% if current_user.developer.nil? %>
+  <div class="flex-center margin-top-5">
+    <h4>Click "Register" to Receive an API Key"</h4>
+  </div>
+  <div class="flex-center">
+    <%= link_to "Register", developer_index_path %>
+  </div>
+<% else %>
+  <div class="flex-center margin-top-5">
+    <h4>Your API Key</h4>
+  </div>
+  <div class="flex-center api_key">
+    <%= current_user.developer.api_key %>
+  </div>
+<% end %>
