@@ -1,8 +1,17 @@
 class Admin::StoresController < ApplicationController
   def index
-    @stores = []
-    @stores << Store.where(status: 'pending')
-    @stores << Store.where(status: 'active')
-    @stores << Store.where(status: 'denied')
+    @stores = Store.all
   end
+
+  def update
+    @store = Store.find(params["id"])
+    @store.update(store_params)
+    redirect_to admin_stores_path
+  end
+
+  private
+
+    def store_params
+      params.permit(:id, :status)
+    end
 end
