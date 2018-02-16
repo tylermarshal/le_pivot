@@ -22,6 +22,8 @@ class Permission
       return true if controller == "categories" && action == "show"
     elsif user.store_admin?
       return true if controller == "admin/stores/items" && action.in?(["index", "new", "create", "edit", "update"])
+      return true if controller == "admin/users" && action == "add_role"
+      return true if controller == "admin/users" && action == "remove_role"
       return true if controller == "categories" && action == "show"
       return true if controller == "carts" && action.in?(["index", "destroy", "update", "create"])
       return true if controller == "users" && action.in?(["index", "show", "edit", "update", "new", "create"])

@@ -1,0 +1,44 @@
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Roles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr class="user-<%= user.id %>">
+        <td><%= user.first_name %> <%= user.last_name %></td>
+        <td>
+          <ul>
+            <% user.roles.each do |role| %>
+              <li><%= role.title %></li>
+            <% end %>
+          </ul>
+        </td>
+        <% if user.store_manager? && user.store_admin? %>
+          <td class="both-exist">
+            <%= link_to "Remove Store Manager Role", admin_remove_role_path(user, role: "store_manager"), method: :put, class: "badge badge-success" %>
+            <%= link_to "Remove Store Admin Role", admin_remove_role_path(user, role: "store_admin"), method: :put, class: "badge badge-success" %>
+          </td>
+        <% elsif user.store_manager? %>
+          <td class="manager-only">
+            <%= link_to "Remove Store Manager Role", admin_remove_role_path(user, role: "store_manager"), method: :put, class: "badge badge-success" %>
+            <%= link_to "Make Store Admin", admin_add_role_path(user, role: "store_admin"), method: :put, class: "badge badge-success" %>
+          </td>
+        <% elsif user.store_admin? %>
+          <td class="admin-only">
+            <%= link_to "Remove Store Admin Role", admin_remove_role_path(user, role: "store_admin"), method: :put, class: "badge badge-success" %>
+            <%= link_to "Make Store Manager", admin_add_role_path(user, role: "store_manager"), method: :put, class: "badge badge-success" %>
+          </td>
+        <% else %>
+          <td class="neither-exist">
+            <%= link_to "Make Store Manager", admin_add_role_path(user, role: "store_manager"), method: :put, class: "badge badge-success" %>
+            <%= link_to "Make Store Admin", admin_add_role_path(user, role: "store_admin"), method: :put, class: "badge badge-success" %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
