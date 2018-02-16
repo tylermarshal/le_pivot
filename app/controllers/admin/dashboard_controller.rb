@@ -1,5 +1,9 @@
 class Admin::DashboardController < ApplicationController
   def index
-    @orders = Order.check_for_status(params)
+    if current_user.platform_admin?
+      @orders = Order.check_for_status(params)
+    else
+      @orders = current_user.stores.orders
+    end
   end
 end
