@@ -16,7 +16,7 @@ Built using Ruby 2.4.1 and Rails 5.1.3
 Clone le_pivot down into a directory of your choosing.
 
 ```
-git clone https://github.com/seoulstice/rales_engine.git
+git clone https://github.com/tylermarshal/le_pivot.git
 ```
 
 Install required gems:
