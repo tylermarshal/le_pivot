@@ -6,12 +6,12 @@ body {
 }
 
 .sessions-new {
-  background: image-url(login) no-repeat center center fixed;
+  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), image-url(i-love-lamp) no-repeat center center fixed;
   background-size: cover;
 }
 
 .users-new {
-  background: image-url(i-love-lamp) no-repeat center center fixed;
+  background: image-url(login) no-repeat center center fixed;
   background-size: cover;
 }
 
