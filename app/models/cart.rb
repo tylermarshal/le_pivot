@@ -37,6 +37,12 @@ class Cart
     end
   end
 
+  def total
+    cart_items.sum do |item, quantity|
+      (item.price * 100) * quantity
+    end
+  end
+
   def delete_item(id)
     contents.delete(id.to_s)
   end
