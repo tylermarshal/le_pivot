@@ -31,6 +31,7 @@ bundle exec rake import_all_stores:create
 bundle exec rake recategorize_books:run
 bundle exec rake book_categories:delete
 bundle exec rake roles:create
+bundle exec rake import_example_users:create
 bundle exec rake images:upload
 bundle exec rake book_images:upload
 ```
@@ -50,6 +51,11 @@ bundle exec rspec
 ```
 
 ## Use
+The following users are available for exploring the application:
+- registered_customer@example.com
+- store_manager@example.com
+- store_admin@example.com
+- platform_admin@example.com
 
 All users have a password of `password` if you want to login and explore.
 
