@@ -3,8 +3,6 @@
 
 The following Rails app is used as the base project for [The Pivot](http://backend.turing.io/module3/projects/the_pivot).
 
-[![CircleCI](https://circleci.com/gh/tylermarshal/le_pivot.svg?style=svg)](https://circleci.com/gh/tylermarshal/le_pivot)
-
 https://le-pivot-nouveau.herokuapp.com/
 
 HomeBodies is a multitenant eCommerce platform built from a brownfield codebase. Stores can apply to sell their home-based products, which a platform admin can accept or deny. Store admins and store manager have access to manager their own stores. Registered users can shop, checkout with stripe, and register as a developer to use the item search API.
@@ -52,7 +50,7 @@ bundle exec rspec
 
 ## Use
 The following users are available for exploring the application:
-- registered_customer@example.com
+- registered_customer: sandy@example.com
 - store_manager@example.com
 - store_admin@example.com
 - platform_admin@example.com
