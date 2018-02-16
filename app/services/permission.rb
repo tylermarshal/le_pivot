@@ -42,6 +42,7 @@ class Permission
       return true if controller == "developer" && action.in?(["index", "create"])
     elsif user.store_manager?
       return true if controller == "admin/stores/items" && action.in?(["index", "new", "create", "edit", "update"])
+      return true if controller == "admin/dashboard" && action == "index"
       return true if controller == "orders" && action.in?(["index", "show", "update"])
       return true if controller == "stores/orders" && action.in?(["index", "show"])
       return true if controller == "categories" && action == "show"

@@ -2,4 +2,6 @@
   <%= render partial: "admin/dashboard/platform_admin" %>
   <% elsif current_user.store_admin? %>
   <%= render partial: "admin/dashboard/store_admin" %>
+  <% elsif current_user.store_manager? %>
+  <%= render partial: "admin/dashboard/store_manager" %>
 <% end %>

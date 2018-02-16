@@ -5,7 +5,7 @@ namespace :import_example_users do
                 address: '123 Street',
                 email: 'registered_customer@example.com',
                 password: 'password')
-                
+
     sm = User.create(first_name: 'Store',
                      last_name: 'Manager',
                      address: '123 Street',
@@ -22,9 +22,9 @@ namespace :import_example_users do
                      email: 'platform_admin@example.com',
                      password: 'password')
 
-    sm_role = Role.find_or_create_by(title: 'store_manager')
-    sa_role = Role.find_or_create_by(title: 'store_admin')
-    pa_role = Role.find_or_create_by(title: 'platform_admin')
+    sm.roles << Role.find_by(title: 'store_manager')
+    sa.roles << Role.find_by(title: 'store_admin')
+    pa.roles << Role.find_by(title: 'platform_admin')
 
     sm.roles << sm_role
     sa.roles << sa_role
