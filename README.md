@@ -52,7 +52,7 @@ bundle exec rspec
 
 ## Use
 The following users are available for exploring the application:
-- registered_customer@example.com
+- registered_customer: sandy@example.com
 - store_manager@example.com
 - store_admin@example.com
 - platform_admin@example.com
