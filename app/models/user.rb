@@ -2,13 +2,13 @@ class User < ApplicationRecord
   has_secure_password
   has_many :orders
 
-  has_many :user_roles
+  has_many :user_roles, dependent: :destroy
   has_many :roles, through: :user_roles
 
   has_many :user_stores
   has_many :stores, through: :user_stores
 
-  has_one :developer
+  has_one :developer, dependent: :destroy
 
   validates :first_name, :last_name, presence: true
   validates :password, presence: true, allow_nil: true
