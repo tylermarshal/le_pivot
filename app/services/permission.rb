@@ -31,6 +31,7 @@ class Permission
       return true if controller == "carts" && action.in?(["index", "destroy", "update", "create"])
       return true if controller == "users" && action.in?(["index", "show", "edit", "update", "new", "create"])
       return true if controller == "stores/items" && action.in?(["index", "show"])
+      return true if controller == "stores/orders" && action.in?(["index", "show"])
       return true if controller == "main" && action =="index"
       return true if controller == "items" && action.in?(["index", "show"])
       return true if controller == "stores" && action.in?(["index", "show"])
@@ -57,6 +58,7 @@ class Permission
     elsif user.registered_user?
       return true if controller == "dashboard" && action == "index"
       return true if controller == "orders" && action.in?(["index", "show", "new"])
+      return true if controller == "charges" && action.in?(["new", "create"])
       return true if controller == "categories" && action == "show"
       return true if controller == "users" && action.in?(["index", "show", "edit", "update", "new", "create"])
       return true if controller == "carts" && action.in?(["index", "destroy", "update", "create"])
