@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     namespace :stores, as: :store, path: ':store' do
       resources :items, only: [:index, :new, :create, :edit, :update]
     end
+    put '/add_role/:id', :to => 'users#add_role', as: 'add_role'
+    put '/remove_role/:id', :to => 'users#remove_role', as: 'remove_role'
   end
 
   namespace :stores, as: :store, path: ':store' do
@@ -27,7 +29,7 @@ Rails.application.routes.draw do
 
   resources :stores, only: [:index, :show]
 
-  resources :users, only: [:new, :create, :edit, :update]
+  resources :users, only: [:index, :new, :create, :edit, :update]
 
   resources :orders, only: [:index, :new, :show, :update]
 
