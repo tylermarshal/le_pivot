@@ -10,8 +10,15 @@ class DeveloperController < ApplicationController
   end
 
   def create
-    Developer.create(user: current_user)
-    redirect_to developer_path
+    @developer = Developer.new(user: current_user)
+    if @developer.save!
+      DeveloperMailer.api_key_email(@developer.user).deliver
+      flash[:notice] = "Your API key has been sent to you via email."
+      redirect_to developer_path
+    else
+      flash[:notice] = "Something went wrong, please try registering again."
+      redirect_to developer_path
+    end
   end
 
 end
