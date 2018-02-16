@@ -55,7 +55,10 @@ All users have a password of `password` if you want to login and explore.
 
 ## Creators
 [Tyler Madsen](https://github.com/tylermarshal)
+
 [Katy Welyczko](https://github.com/katyjane8)
+
 [Anna Lewis](https://github.com/anlewis)
+
 [Timo Mitchel](https://github.com/timomitchel)
 
