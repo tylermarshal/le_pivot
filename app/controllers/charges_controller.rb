@@ -3,7 +3,7 @@ class ChargesController < ApplicationController
   end
 
   def create
-    order = Order.find(params[:order_id])
+    order = Order.new(status: "ordered", user_id: current_user.id)
     # Amount in cents
     @amount = (order.order_total * 100).to_i
 
