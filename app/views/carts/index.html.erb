@@ -1,7 +1,7 @@
 <div class="container">
   <% if current_user  %>
     <div class="margin-top-5">
-      <h3><%= current_user.first_name %>'s  Cart</h3>
+      <h3><%= current_user.first_name.capitalize %>'s  Cart</h3>
     </div>
   <% else %>
     <div class="margin-top-5">
