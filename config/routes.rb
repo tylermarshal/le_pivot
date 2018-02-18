@@ -42,6 +42,12 @@ Rails.application.routes.draw do
   get "/settings/developer", to: "developer#index", as: "developer"
   post "/settings/developer", to: "developer#create", as: "developer_create"
 
+  namespace :api do
+    namespace :v1 do
+        get 'search', to: 'search#index'
+    end
+  end
+
   get '/cart', :to => 'carts#index', :as => 'cart'
 
   resources :items, only: [:index, :show]
