@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :developer do
-    user nil
+    user_id 1
   end
 end
