@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found
-    raise ActionController::RoutingError.new('Not Found')
+    render file: '/public/404', status: 404
   end
 
   private
