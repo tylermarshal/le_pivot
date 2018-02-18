@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  include ActiveModel::Serialization
+
   belongs_to :category
   belongs_to :store
   has_many :order_items, dependent: :destroy
@@ -27,6 +29,11 @@ class Item < ApplicationRecord
 
   def quantity(order)
      OrderItem.find_by(item: self.id, order: order.id).quantity
+  end
+
+  def self.item_search(query)
+    where(condition: "active")
+    .where("title LIKE ? OR description LIKE ?", "%#{query}%", "%#{query}%")
   end
 
 end
