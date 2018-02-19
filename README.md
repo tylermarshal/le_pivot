@@ -5,7 +5,18 @@ The following Rails app is used as the base project for [The Pivot](http://backe
 
 https://le-pivot-nouveau.herokuapp.com/
 
-HomeBodies is a multitenant eCommerce platform built from a brownfield codebase. Stores can apply to sell their home-based products, which a platform admin can accept or deny. Store admins and store manager have access to manager their own stores. Registered users can shop, checkout with stripe, and register as a developer to use the item search API.
+HomeBodies is a multitenant eCommerce platform built from a brownfield codebase. It was a group project built by 4 students at Turing School of Sofware & Design.
+
+Stores can apply to sell their home-based products, which a platform admin can accept or deny. Store admins and store manager have access to manager their own stores. Registered users can shop, checkout with stripe, and register as a developer to use the item search API.
+
+## Creators
+[Tyler Madsen](https://github.com/tylermarshal)
+
+[Katy Welyczko](https://github.com/katyjane8)
+
+[Anna Lewis](https://github.com/anlewis)
+
+[Timo Mitchel](https://github.com/timomitchel)
 
 ## Setup & Installation
 
@@ -57,15 +68,16 @@ The following users are available for exploring the application:
 
 All users have a password of `password` if you want to login and explore.
 
+### Item Search API Endpoints
+
+You can search for items by title or description using the following endpoint: get /api/v1/search?type=items&q=[query]&api_key=[your_api_key] 
+
+To register an account as a developer and receive an API key, login and navigate to `/dashboard`, click on `Developer Settings`, and then hit `Register as a Developer`. You can view your API key on this screen and you will also have a copy sent to the email address tied to your account.
+
+In your local environment, set a default api key ENV['search_api_key'] to use the Item Search bar in the global navigation.
+
 ## Database Schema
 
 ![database schema](https://i.imgur.com/5lyGtdL.png)
-## Creators
-[Tyler Madsen](https://github.com/tylermarshal)
 
-[Katy Welyczko](https://github.com/katyjane8)
-
-[Anna Lewis](https://github.com/anlewis)
-
-[Timo Mitchel](https://github.com/timomitchel)
 
