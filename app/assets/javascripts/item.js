@@ -15,7 +15,7 @@ $(document).ready(function() {
       }
       else {
         var itemLinks = items["results"].slice(0,5).map(function(item) {
-          return "<a class='result' href='" + "/items/" + item.id + "'>" + item.title + "</a><br>"
+          return "<a class='result' href='" + domain + "/" + item.store + "/items/" + item.id + "'>" + item.title + "</a><br>"
         });
         $(".all-results").html(itemLinks)
       }
