@@ -10,6 +10,9 @@
   </head>
 
   <body class="<%= params[:controller] %>-<%= params[:action] %>">
+      <script>
+        var search_api_key = "<%= ENV["search_api_key"] %>";
+      </script>
       <div class="container-fullwidth color-gradient flex-center">
       <%= render "shared/nav" %>
       </div>

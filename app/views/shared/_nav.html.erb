@@ -1,5 +1,5 @@
-<ul class="nav">
-  <li class="logo"><%= link_to  "HomeBodies", root_path %></li>
+
+<ul class="nav">  <li class="logo"><%= link_to  "HomeBodies", root_path %></li>
 
   <% if current_user.nil? %>
     <li class="nav-item">
@@ -36,5 +36,12 @@
       <%= link_to 'Logout', logout_path, method: :delete, class: "nav-link active" %>
     </li>
   <% end %>
-
+  <li>
+    <div class="item-search">
+      <%= form_tag do %>
+        <%= text_field_tag :search, "", placeholder: "Search for Items", class: "item-search-txt" %>
+      <% end %>
+      <div class="all-results"></div>
+    </div>
+  </li>
 </ul>
