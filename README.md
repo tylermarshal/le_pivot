@@ -78,6 +78,6 @@ In your local environment, set a default api key ENV['search_api_key'] to use th
 
 ## Database Schema
 
-![database schema](https://i.imgur.com/oe2cX7y.png)
+![database schema](https://i.imgur.com/u4cqLi2.png)
 
 
